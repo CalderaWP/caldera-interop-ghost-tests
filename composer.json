@@ -1,0 +1,39 @@
+{
+  "name": "calderawp/caldera-interop-ghost-tests",
+  "type": "wordpress-plugin",
+  "license": "GPLv2+",
+  "authors": [
+    {
+      "name": "Josh Pollock",
+      "email": "Josh@CalderaWP.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.0",
+    "calderawp/caldera-interop": "^0.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "calderawp\\interop\\interopGhostTests\\": "src"
+    }
+  },
+  "scripts" : {
+    "tests" : "composer fixes && composer sniffs && composer test",
+    "test": "composer phpunit",
+    "phpunit-v": "phpunit --version",
+    "sniffs" : "phpcs src/ && phpcs tests/",
+    "fixes" : "phpcbf src/ && phpcbf tests/",
+    "lints" : "parallel-lint ./src  --blame --exclude vendor && parallel-lint ./tests  --blame --exclude vendor"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "calderawp\\interopGhostTests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5",
+    "squizlabs/php_codesniffer": "^3.2",
+    "jakub-onderka/php-parallel-lint": "^1.0"
+  }
+}
